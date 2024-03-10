@@ -18,7 +18,7 @@ df = spark.read.csv("C:/apps/sparkbyexamples/src/pyspark-examples/resources/zipc
 df.printSchema()
 
 df2 = spark.read.option("header",True) \
-     .csv("C:/apps/sparkbyexamples/src/pyspark-examples/resources/zipcodes.csv")
+     .csv("/FileStore/zipcodes.csv")
 df2.printSchema()
    
 
@@ -57,5 +57,5 @@ df_with_schema = spark.read.format("csv") \
 df_with_schema.printSchema()
 
 df2.write.option("header",True) \
- .csv("/tmp/spark_output/zipcodes123")
+ .csv("/FileStore/zipcodes123")
  
