@@ -13,7 +13,7 @@ from pyspark.sql.functions import col,array_contains
 
 spark = SparkSession.builder.appName('SparkByExamples.com').getOrCreate()
 
-df = spark.read.csv("C:/apps/sparkbyexamples/src/pyspark-examples/resources/zipcodes.csv")
+df = spark.read.csv("/FileStore/zipcodes.csv")
 
 df.printSchema()
 
@@ -24,7 +24,7 @@ df2.printSchema()
 
 
 df3 = spark.read.options(header='True', delimiter=',') \
-  .csv("C:/apps/sparkbyexamples/src/pyspark-examples/resources/zipcodes.csv")
+  .csv("/FileStore/zipcodes.csv")
 df3.printSchema()
 
 
@@ -50,11 +50,11 @@ schema = StructType() \
       .add("TotalWages",IntegerType(),True) \
       .add("Notes",StringType(),True)
       
-df_with_schema = spark.read.format("csv") \
-      .option("header", True) \
-      .schema(schema) \
-      .load("C:/apps/sparkbyexamples/src/pyspark-examples/resources/zipcodes.csv")
-df_with_schema.printSchema()
+#df_with_schema = spark.read.format("csv") \
+#      .option("header", True) \
+#      .schema(schema) \
+#      .load("/FileStore/zipcodes.csv")
+#df_with_schema.printSchema()
 
 df2.write.option("header",True) \
  .csv("/FileStore/zipcodes123")
