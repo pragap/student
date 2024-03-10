@@ -57,5 +57,5 @@ schema = StructType() \
 #df_with_schema.printSchema()
 
 df2.write.option("header",True) \
- .csv("/FileStore/zipcodes123")
+ .csv("/FileStore/zipcodes1")
  
