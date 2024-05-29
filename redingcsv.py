@@ -15,7 +15,7 @@ spark = SparkSession.builder.appName('SparkByExamples.com').getOrCreate()
 
 df2 = spark.read.option("header",True) \
      .csv("dbfs:/FileStore/zipcodes.csv")
-
+df2=df2
 df2.write.option("header",True) \
  .csv("dbfs/FileStore/zipcodes1")
  
